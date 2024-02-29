@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIDT</title>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Table form Using Html, Css <a href="./Table.html">Table</a>
+
+        <!-- Count Down -->
+        <p>Redirecting in <span id="countdown">10</span> seconds...</p>
+
+        <!-- Script -->
+        <script>
+            // Set the initial countdown time in seconds
+            var countdownSeconds = 7;
+            
+            // Function to update the countdown element
+            function updateCountdown() {
+              var countdownElement = document.getElementById("countdown");
+              countdownElement.textContent = countdownSeconds;
+            }
+            
+            // Function to redirect after countdown
+            function redirect() {
+              window.location.href = "./Table.html"; // Change the URL to the one you want to redirect to
+            }
+            
+            // Function to start the countdown
+            function startCountdown() {
+              updateCountdown();
+              var countdownInterval = setInterval(function() {
+                countdownSeconds--;
+                updateCountdown();
+                if (countdownSeconds <= 0) {
+                  clearInterval(countdownInterval);
+                  redirect();
+                }
+              }, 1000);
+            }
+            
+            // Start the countdown when the page loads
+            window.onload = startCountdown;
+            </script>
+</body>
+</html>
