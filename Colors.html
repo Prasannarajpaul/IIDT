@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #container{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 30%;
+            align-items: center;
+            margin: 0;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+            border: 2px solid black;
+            /* border-radius: 50px;        */
+        }
+        button:active{
+            transform: scale(0.95);
+        }
+        h1{
+            background-color: black;
+            color:white;
+            padding:0px 10px;
+        }
+        #text{
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Background Color: <span id="text">hexcode</span></h1>
+        <button onclick="change()">CLICK ME</button>
+    </div>
+    <script>
+        window.alert("College ID: 20A21A05A9\nDomain: FSD\nProject: Color Flipper\nCollege: Swarnandhra College of Engineering and Technology");
+        function change() {
+            var characters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+            var color = "#";
+            for(var i=0;i<6;i++){
+                var randomColor = Math.floor(Math.random()*16)
+                color=color+characters[randomColor]
+            }
+            console.log(color)
+            document.querySelector("body").style.backgroundColor =color;
+            document.querySelector("button").style.backgroundColor =color;
+            document.querySelector("#text").innerHTML = color;        
+        };
+        function clickButtonMultipleTimes() {
+            var button = document.querySelector("button");
+            var interval = 100; 
+            var clicks = 0;
+            var clickInterval = setInterval(function() {
+                button.click();
+                clicks++;
+                if (clicks >= 30) {
+                    clearInterval(clickInterval); // Stop clicking after 10 times
+                }
+            }, interval);
+
+        }
+        
+        window.onload = function() {
+        clickButtonMultipleTimes();
+        };
+        
+    </script>
+</body>
+</html>
